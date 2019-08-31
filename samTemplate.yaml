@@ -85,8 +85,6 @@ Globals:
       Timeout: 900
       Role: arn:aws:iam::375196252534:role/deliforceRole
    
-  
-
   Deliforcemobilenotificationget:
     Type: AWS::Serverless::Function
     Properties:
@@ -101,7 +99,7 @@ Globals:
   Deliforcemobileroutesget:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: Deliforce_mobile_routes_get   
+      FunctionName: Deliforce_mobile_routes_get
       Handler: index.handler
       Runtime: nodejs6.10
       CodeUri: ./Deliforce_mobile_routes_get/Deliforce_mobile_routes_get.zip
