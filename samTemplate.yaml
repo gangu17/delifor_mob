@@ -7,13 +7,6 @@ Globals:
       Variables:
         bucketName: lambda-constant2
         constantFileName: constant.json
-
-Resources:
-  ApiGateway:
-    Type: 'AWS::Serverless::Api'
-    Properties:
-      StageName: Development
-      DefinitionUri: ./mobile_dev_api_gatway.yaml
       
   Deliforcemobileanalyticshourslist:
     Type: AWS::Serverless::Function
