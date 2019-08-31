@@ -1,0 +1,525 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Deliforce mobile Lambda'
+Globals:
+  Function:
+    Environment:
+      Variables:
+        bucketName: lambda-constant2
+        constantFileName: constant.json
+
+Resources:
+  ApiGateway:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: Development
+      DefinitionUri: ./livedeliforce-mobile-api.yaml
+      
+  Deliforcemobileanalyticshourslist:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_analytics_hourslist
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_analytics_hourslist/Deliforce_mobile_analytics_hourslist.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforcemobileanalyticstaskComplete:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_analytics_taskComplete
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_analytics_taskComplete/Deliforce_mobile_analytics_taskComplete.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+  
+  Deliforcemobiledriverstatus:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_driverstatus
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_driverstatus/Deliforce_mobile_driverstatus.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole  
+
+  mobilefetchsingletask:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: mobile_fetch_singletask
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./mobile_fetch_singletask/mobile_fetch_singletask.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobilegetfiles:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_getfiles
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_getfiles/Deliforce_mobile_getfiles.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforcemobilefileRemove:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_fileRemove
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_fileRemove/Deliforce_mobile_fileRemove.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+  
+  Deliforcemobilefileupload:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_fileupload
+      Handler: lambda.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_fileupload/Deliforce_mobile_fileupload.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+   
+  
+
+  Deliforcemobilenotificationget:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_notification_get
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_notification_get/Deliforce_mobile_notification_get.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+  
+  Deliforcemobileroutesget:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_routes_get   
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_routes_get/Deliforce_mobile_routes_get.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobilesettingsget:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_settings_get
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_settings_get/Deliforce_mobile_settings_get.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  
+
+  Deliforcemobilenotesget:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_notes_get
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_notes_get/Deliforce_mobile_notes_get.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+
+  Deliforcemobilenotespost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_notes_post
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_notes_post/Deliforce_mobile_notes_post.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobilenotesput:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_notes_put
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_notes_put/Deliforce_mobile_notes_put.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole    
+
+  DeliforcemobilenotesdeleteMethod:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_notification_delete 
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_notification_delete/Deliforce_mobile_notification_delete.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobiletasklistpost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_tasklist_post
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_tasklist_post/Deliforce_mobile_tasklist_post.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobiletaskroutesget:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_taskroutes_get
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_taskroutes_get/Deliforce_mobile_taskroutes_get.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+ 
+  Deliforcemobiletaskupdate:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_task_update
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_task_update/Deliforce_mobile_task_update.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+  Deliforcemobilesettingsput:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_settings_put
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_settings_put/Deliforce_mobile_settings_put.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforceMobileRegisterToken:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: DeliforceMobileRegisterToken
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./DeliforceMobileRegisterToken/DeliforceMobileRegisterToken.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobileloginpost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_login_post
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_login_post/Deliforce_mobile_login_post.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobileprofileget:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_profile_get
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_profile_get/Deliforce_mobile_profile_get.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobileprofileput:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_profile_put
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_profile_put/Deliforce_mobile_profile_put.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobiletaskdetailsget:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_taskdetails_get
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_taskdetails_get/Deliforce_mobile_taskdetails_get.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  
+  Deliforcemobileforgotpasswordpost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_forgotpassword_post
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_forgotpassword_post/Deliforce_mobile_forgotpassword_post.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobilefileupdate:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce-mobile-fileupdate
+      Handler: lambda.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce-mobile-fileupdate/Deliforce-mobile-fileupdate.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforcemobileanalyticsdriverLogUpdate:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_analytics_driverLogUpdate
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_analytics_driverLogUpdate/Deliforce_mobile_analytics_driverLogUpdate.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+
+  
+
+  Deliforcemobilechangepasswordput:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_changepassword_put
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_changepassword_put/Deliforce_mobile_changepassword_put.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole 
+
+  DeliforcemobileautoAllocationtaskupdate:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_autoAllocation_task_update
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_autoAllocation_task_update/Deliforce_mobile_autoAllocation_task_update.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole 
+
+  Deliforcemobileanalyticpost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_analytic_post
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_analytic_post/Deliforce_mobile_analytic_post.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+  
+  Deliforcemobilebarcodepost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_barcode_post
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_barcode_post/Deliforce_mobile_barcode_post.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobilehelppost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_help_post
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_help_post/Deliforce_mobile_help_post.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobilenotesdelete:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_notes_delete
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_notes_delete/Deliforce_mobile_notes_delete.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+  
+ 
+  Deliforcemobiledriverlogdata:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_driverlogdata
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_driverlogdata/Deliforce_mobile_driverlogdata.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobileanalyticsdriverlog:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_analytics_driverlog
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_analytics_driverlog/Deliforce_mobile_analytics_driverlog.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  Deliforcemobilestatuslist:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Deliforce_mobile_statusList
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: ./Deliforce_mobile_statusList/Deliforce_mobile_statusList.zip
+      MemorySize: 3008
+      Timeout: 900
+      Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforcedriverMqttLamdaMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: driverMqttLamda
+       Timeout: 900
+       Handler: index.handler
+       Runtime: nodejs8.10
+       CodeUri: ./driverMqttLamda/driverMqttLamda.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole 
+ 
+  DeliforceliveTrackMqttLambdaMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: liveTrackMqttLambda
+       Timeout: 900
+       Handler: index.handler
+       Runtime: nodejs8.10
+       CodeUri: ./liveTrackMqttLambda/liveTrackMqttLambda.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole 
+
+  DeliforcetaskMqttlambdaMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: taskMqttLambda
+       Timeout: 900
+       Handler: index.handler
+       Runtime: nodejs8.10
+       CodeUri: ./taskMqttLambda/taskMqttLambda.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforcedeliforceliveTrackingupdateMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: deliforce_liveTracking_update
+       Timeout: 900
+       Handler: index.handler
+       Runtime: nodejs8.10
+       CodeUri: ./deliforce_liveTracking_update/deliforce_liveTracking_update.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole
+
+
+  DeliforcedriverprofileimageUploadeMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: Deliforce_driver_profile_image_Upload
+       Timeout: 900
+       Handler: lambda.handler
+       Runtime: nodejs8.10
+       CodeUri: ./Deliforce_driver_profile_image_Upload/Deliforce_driver_profile_image_Upload.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforcemobiledrivertaskpostMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: Deliforce_mobile_driver_task_post
+       Timeout: 900
+       Handler: lambda.handler
+       Runtime: nodejs8.10
+       CodeUri: ./Deliforce_mobile_driver_task_post/Deliforce_mobile_driver_task_post.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole
+
+  DeliforcemobiletaskotpverificationMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: Deliforce_mobile_task_otp_verification
+       Timeout: 900
+       Handler: lambda.handler
+       Runtime: nodejs8.10
+       CodeUri: ./Deliforce_mobile_task_otp_verification/Deliforce_mobile_task_otp_verification.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole
+  Deliforcemobilepricingearningsget:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: Deliforce_mobile_pricing_earnings_get
+       Timeout: 900
+       Handler: lambda.handler
+       Runtime: nodejs8.10
+       CodeUri: ./Deliforce_mobile_pricing_earnings_get/Deliforce_mobile_pricing_earnings_get.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole
+  Deliforcemobilepricingearningspost:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: Deliforce_mobile_pricing_earnings_post
+       Timeout: 900
+       Handler: lambda.handler
+       Runtime: nodejs8.10
+       CodeUri: ./Deliforce_mobile_pricing_earnings_post/Deliforce_mobile_pricing_earnings_post.zip
+       MemorySize: 3008
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::375196252534:role/deliforceRole
+
+
+
+
+
+
+  
+  
