@@ -1,0 +1,26 @@
+{
+  "name": "deliforce_mobile_task_otp_verification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.462.0",
+    "mongoose": "^5.5.11",
+    "otp-generator": "^1.1.0",
+    "@sendgrid/mail": "^6.3.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.23",
+    "mongoose-float": "^1.0.4",
+    "msg91": "0.0.6",
+    "request-promise": "^4.2.4",
+    "sparrow-sms": "^2.1.0",
+    "tinyurl": "^1.1.2",
+    "twilio": "^3.30.0"
+  }
+}

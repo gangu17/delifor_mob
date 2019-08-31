@@ -1,0 +1,17 @@
+{
+  "name": "update",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.360.0",
+    "is-empty": "^1.2.0",
+    "mongoose": "^5.1.7",
+    "mongoose-validator": "^2.0.2"
+  }
+}

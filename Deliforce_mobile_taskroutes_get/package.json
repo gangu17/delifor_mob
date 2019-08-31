@@ -1,0 +1,17 @@
+{
+  "name": "fetch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.417.0",
+    "geolib": "^2.0.24",
+    "moment-timezone": "^0.5.23",
+    "mongoose": "^5.0.8"
+  }
+}
